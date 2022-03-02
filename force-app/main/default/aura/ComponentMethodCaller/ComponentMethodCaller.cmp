@@ -1,0 +1,28 @@
+<aura:component >
+    <aura:attribute name="accountRecords" type="Account[]"/>
+    <ltng:require scripts="{!join(',',$Resource.Jquery,
+    $Resource.Bootstrap + '/bootstrap-3.3.7-dist/js/bootstrap.min.js')}" 
+                 styles="{!$Resource.Bootstrap + '/bootstrap-3.3.7-dist/css/bootstrap.min.css'}" />
+    <c:ComponentMethod aura:id="child"/>
+    <aura:if isTrue="{!v.accountRecords.length>0}">
+            <B>Account Records</B>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Name</th>
+                </tr></thead>
+            <tbody>
+       <aura:iteration items="{!v.accountRecords}" var="item">
+        <tr>
+        <td>{!item.Name}</td> 
+        </tr>
+    </aura:iteration>
+            </tbody>
+    </table>
+    <aura:set attribute="else">
+      <div>Please click on click me button to view records</div>
+    </aura:set>
+  </aura:if>
+
+    <lightning:button label="Click Me" onclick="{!c.accontsretrievebyauramethod}"/>
+</aura:component>

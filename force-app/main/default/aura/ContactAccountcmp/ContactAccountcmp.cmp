@@ -1,0 +1,55 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global"  controller="ContactAccountController" >
+   
+    <aura:attribute name="title" type="String" default="Account Details"/>
+    <aura:attribute type="Account[]" name="acctList" />
+    <aura:attribute name="selectId" type="List"/>
+    <aura:attribute name="selectedRows" type="List"/>
+    <aura:attribute name="ContactList" type="Contact[]" />
+    <aura:attribute name="mycolumns" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.fetchAccounts}"/>
+    	<lightning:card>
+        <aura:set attribute="title">
+            <lightning:icon iconName="utility:connected_apps" size="small"/>
+            {! v.title }
+             <lightning:datatable data="{! v.acctList }"
+                         columns="{! v.mycolumns }"
+                         keyField="id"
+                         hideCheckboxColumn="false"
+                         onrowselection="{! c.handleRowAction }"/>
+        </aura:set>
+    <lightning:card iconName="standard:work_capacity_usage" title="Related Contacts">
+        <aura:if isTrue="{!not(empty(v.ContactList))}">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="First Name">FirstName</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="last Name">LastName</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration  items="{!v.ContactList}" var="con">
+                        <tr class="slds-hint-parent">
+                            <td data-label="File Name">
+                                <div class="slds-truncate" title="File Name">{!con.FirstName}</div>  
+                            </td>
+                            <td data-label="File Name">
+                                <div class="slds-truncate" title="File Name">{!con.LastName}</div>  
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+            <aura:set attribute="else">
+                <div Style="text-align : center"> " There are no related contacts "</div>
+            </aura:set>
+        </aura:if>
+    </lightning:card>
+        <aura:set attribute="footer">
+            <lightning:button variant="brand" label="Click Me" title="Click Me" onclick="{!c.myActions}" />
+        </aura:set>
+    </lightning:card>
+</aura:component>

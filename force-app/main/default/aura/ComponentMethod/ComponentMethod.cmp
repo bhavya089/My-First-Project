@@ -1,0 +1,7 @@
+<aura:component controller="ContactRecords" >
+ <aura:method name="retrieveAccounts" description="Sample method">
+     <aura:attribute name="callback" type="Function"/>
+     <aura:attribute name="objectName" type="String" default="Account"/>
+     <aura:attribute name="fieldName" type="String"/> 
+    </aura:method>	
+</aura:component>

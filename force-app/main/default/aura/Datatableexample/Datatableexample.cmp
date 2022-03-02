@@ -1,0 +1,59 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="DataTable" >
+    
+	<aura:attribute name="PageHeading" type="String" default="Account Records"/>
+    <aura:attribute name="mydata" type="Object"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    <aura:attribute name="selectId" type="List"/>
+    <aura:attribute name="ContactList" type="Contact[]" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <lightning:card iconName="standard:work_capacity_usage" title="Related Contacts">
+        <aura:if isTrue="{!not(empty(v.ContactList))}">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="First Name">FirstName</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="last Name">LastName</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <aura:iteration  items="{!v.ContactList}" var="con">
+                        <tr class="slds-hint-parent">
+                            <td data-label="File Name">
+                                <div class="slds-truncate" title="File Name">{!con.FirstName}</div>  
+                            </td>
+                            <td data-label="File Name">
+                                <div class="slds-truncate" title="File Name">{!con.LastName}</div>  
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+            <aura:set attribute="else">
+                <div Style="text-align : center"> " There are no related contacts "</div>
+            </aura:set>
+        </aura:if>
+        </lightning:card>
+    <div class="slds-m-top--xx-large">
+        <div class="slds-page-header">
+            <div class="slds-align--absolute-center">
+                <div class="slds-text-heading--large">       
+                    {!v.PageHeading}
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/> <br/>
+    
+    <div class="slds-grid slds-grid--align-end"> 
+        <lightning:button variant="brand" label="getRecords" onclick="{!c.doDelete}"/>
+    </div>
+    <lightning:datatable data="{! v.mydata }" 
+                         columns="{! v.mycolumns }" 
+                         keyField="Id" 
+                         onrowselection="{! c.handleRowAction }"/>
+</aura:component>

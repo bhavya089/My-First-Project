@@ -1,0 +1,18 @@
+<apex:page >
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Congratulations</h1>
+  This is your new Page
+  <!-- End Default Content REMOVE THIS --> 
+  <a id="liveagent_button_online_5735j000000PN6R" href="javascript://Chat" style="display: none;" onclick="liveagent.startChat('5735j000000PN6R')"><!-- Online Chat Content --></a><div id="liveagent_button_offline_5735j000000PN6R" style="display: none;"><!-- Offline Chat Content --></div><script type="text/javascript">
+if (!window._laq) { window._laq = []; }
+window._laq.push(function(){liveagent.showWhenOnline('5735j000000PN6R', document.getElementById('liveagent_button_online_5735j000000PN6R'));
+liveagent.showWhenOffline('5735j000000PN6R', document.getElementById('liveagent_button_offline_5735j000000PN6R'));
+});</script>
+
+<a id="liveagent_button_online_5735j000000PN6R" href="javascript://Chat" style="display: none;" onclick="liveagent.startChat('5735j000000PN6R')"><!-- Online Chat Content --></a><div id="liveagent_button_offline_5735j000000PN6R" style="display: none;"><!-- Offline Chat Content --></div><script type="text/javascript">
+if (!window._laq) { window._laq = []; }
+window._laq.push(function(){liveagent.showWhenOnline('5735j000000PN6R', document.getElementById('liveagent_button_online_5735j000000PN6R'));
+liveagent.showWhenOffline('5735j000000PN6R', document.getElementById('liveagent_button_offline_5735j000000PN6R'));
+});</script>
+
+</apex:page>

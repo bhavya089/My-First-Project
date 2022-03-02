@@ -1,0 +1,23 @@
+<aura:component implements="force:lightningQuickAction" >
+	<div>
+          <b>calculator:</b>
+    </div>
+    <div>
+        <div>
+                <ui:inputNumber label="First Number" aura:id="fnum"/>
+            <br/>
+        </div>
+        <div>
+                <ui:inputNumber label="Second Number" aura:id="snum"/>
+            
+            </div><br/>
+        <div>
+                <ui:inputNumber label="Result" aura:id="Result"/>
+            
+        </div><br/>
+        <div>  
+                <ui:button label="click me" press="{!c.calculate}" class="button"/>
+            
+        </div>
+    </div>
+</aura:component>

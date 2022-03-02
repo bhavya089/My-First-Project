@@ -1,0 +1,13 @@
+<apex:page standardController="Product2" extensions="AccountViewController" recordSetVar="products">
+   <apex:form >
+       <apex:pageBlock title="Product Selected Records">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!displayingSelectedRecords}" value="Confirm"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!selected}" var="pro">
+                <apex:column value="{!pro.Name}"/>
+              
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

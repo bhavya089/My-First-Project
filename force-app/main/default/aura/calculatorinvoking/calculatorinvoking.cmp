@@ -1,0 +1,17 @@
+<aura:component controller="calculatorController">
+	<aura:attribute name="fNumber" type="decimal"/>
+    <aura:attribute name="sNumber" type="decimal"/>
+    <aura:attribute name="result" type="decimal"/>
+    <aura:attribute name="actionName" type="string"/>                                    
+    <div>
+        <b>calculator</b>
+    </div>   
+    <lightning:input label="First Number" type="number" value="{!v.fNumber}"/>
+    <lightning:input label="Second Number" type="number" value="{!v.sNumber}"/>
+    <lightning:input label="Result" type="number" value="{!v.result}"/>
+    <lightning:button variant="brand" label="ADD" title="Brand variant" onclick="{!c.doAdd}"/>
+    <lightning:button variant="brand-outline" label="SUBTRACT" title="Brand variant" onclick="{!c.doSubtract}"/>
+    <lightning:button variant="destructive" label="DIVISION" title="Brand variant" onclick="{!c.doDiv}"/>
+    <lightning:button variant="destructive-text" label="MULTIPLICATION" title="Brand variant" onclick="{!c.doMulti}"/>
+    {!v.actionName}:{!v.result}
+</aura:component>

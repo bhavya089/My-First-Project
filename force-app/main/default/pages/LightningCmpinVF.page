@@ -1,0 +1,12 @@
+<apex:page >
+    <apex:includeLightning />
+    <div id="lightningcontainer"/>
+    <script>
+    $Lightning.use("c:AppforVfpages",function(){
+        $Lightning.createComponent("c:ComponentMethodCaller",{},
+                                  "lightningcontainer",
+                                  function(cmp){
+                                      });
+        });
+    </script>
+</apex:page>

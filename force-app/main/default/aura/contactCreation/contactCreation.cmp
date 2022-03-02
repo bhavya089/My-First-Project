@@ -1,0 +1,13 @@
+<aura:component controller="cntctcontroller">
+	<aura:attribute name="contactDetails" type="contact" default="{sobjectName:'Contact',
+                                                                FirstName:'',
+                                                                LastName:'',
+                                                                  Email:''}"/>
+    <aura:attribute name="accountId" type="String"/>
+    <div class="slds-p-horizontal_small">
+        <lightning:input type="text" value="{!v.contactDetails.FirstName}" label="first Name"/>
+        <lightning:input type="text" value="{!v.contactDetails.LastName}" label="last Name"/>
+        <lightning:input type="text" value="{!v.contactDetails.Email}" label="email"/>
+        <lightning:button label="create contact" onclick="{!c.saveContact}"/>
+    </div>
+</aura:component>

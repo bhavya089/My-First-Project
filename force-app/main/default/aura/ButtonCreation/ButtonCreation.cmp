@@ -1,0 +1,4 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+	<!-- Brand-outline variant: Identifies the primary action in a group of buttons, but has a lighter look -->
+    <lightning:button variant="brand-outline" label="Brand Outline" title="Brand action" onclick="{! c.handleClick }" />
+</aura:component>

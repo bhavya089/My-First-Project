@@ -1,0 +1,29 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" Controller="practicdatatable" >	
+    <aura:attribute name="contactobj" type="contact[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.contactsGetting}"/>
+    <c:contactCreation accountId="{!v.recordId}"/>
+    <div class="slds-grid slds-wrap">
+        
+    <aura:iteration items="{!v.contactobj}"  var="con" >
+        <div class="slds-col slds-size_1-of-3">
+        <lightning:card footer= "{!con.Email}" title="{!con.Name}" iconName="standard:email">
+        <aura:set attribute="actions">
+            <lightning:button name="{!con.Id}" label="viewdetails" onclick="{!c.redirectpage}"/>
+            <lightning:button name="https://spoonacular.com/food-api" label="viewUrl" onclick="{!c.redirecttourl}"/>
+            <lightning:button  label="viewrelatedlist" onclick="{!c.redirecttocases}"/>
+        </aura:set>
+        <p class="slds-p-horizontal_small">
+            {!con.Name}
+        <br/>
+        {!con.Email}
+            <br/>
+        </p>
+            
+    </lightning:card>
+       
+        </div>   
+      
+    </aura:iteration>
+    
+	</div>
+</aura:component>
