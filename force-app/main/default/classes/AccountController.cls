@@ -1,6 +1,7 @@
 public with sharing class AccountController {
     //addin one comment
     //adding one line
+    //added another line in feature2 branch
     public String accountId{get;set;}
     public Account actObj{get;set;}
     public AccountController() {
